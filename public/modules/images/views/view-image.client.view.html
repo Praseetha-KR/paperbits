@@ -1,0 +1,19 @@
+<section data-ng-controller="ImagesController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="image.url"></h1>
+	</div>
+	<div class="pull-right" data-ng-show="authentication.user._id == image.user._id">
+		<a class="btn btn-primary" href="/#!/images/{{image._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Saved on
+			<span data-ng-bind="image.created | date:'mediumDate'"></span>
+		</em>
+	</small>
+</section>

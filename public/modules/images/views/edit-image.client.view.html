@@ -1,0 +1,26 @@
+<section data-ng-controller="ImagesController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>Edit Image</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="imageForm" class="form-horizontal" data-ng-submit="update(imageForm.$valid)" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && imageForm.url.$invalid}">
+					<label class="control-label" for="url">URL</label>
+					<div class="controls">
+						<input name="url" type="text" data-ng-model="image.url" id="url" class="form-control" placeholder="URL" required>
+					</div>
+					<div ng-show="submitted && imageForm.url.$invalid" class="help-block">
+						<p ng-show="imageForm.url.$error.required" class="text-danger">URL is required</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Update" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>
