@@ -38,9 +38,7 @@ describe('Link CRUD tests', function() {
 		// Save a user to the test db and create new link
 		user.save(function() {
 			link = {
-				title: 'Link Title',
-				content: 'Link Content',
-				linkbook: 'Link Book'
+				url: 'Link Url'
 			};
 
 			done();
@@ -77,7 +75,7 @@ describe('Link CRUD tests', function() {
 
 								// Set assertions
 								(links[0].user._id).should.equal(userId);
-								(links[0].title).should.match('Link Title');
+								(links[0].url).should.match('Link Url');
 
 								// Call the assertion callback
 								done();
@@ -96,9 +94,9 @@ describe('Link CRUD tests', function() {
 			});
 	});
 
-	it('should not be able to save an link if no title is provided', function(done) {
-		// Invalidate title field
-		link.title = '';
+	it('should not be able to save an link if no url is provided', function(done) {
+		// Invalidate url field
+		link.url = '';
 
 		agent.post('/auth/signin')
 			.send(credentials)
@@ -116,7 +114,7 @@ describe('Link CRUD tests', function() {
 					.expect(400)
 					.end(function(linkSaveErr, linkSaveRes) {
 						// Set message assertion
-						(linkSaveRes.body.message).should.match('Title cannot be blank');
+						(linkSaveRes.body.message).should.match('URL cannot be blank');
 
 						// Handle link save error
 						done(linkSaveErr);
@@ -143,8 +141,8 @@ describe('Link CRUD tests', function() {
 						// Handle link save error
 						if (linkSaveErr) done(linkSaveErr);
 
-						// Update link title
-						link.title = 'WHY YOU GOTTA BE SO MEAN?';
+						// Update link url
+						link.url = 'WHY YOU GOTTA BE SO MEAN?';
 
 						// Update an existing link
 						agent.put('/links/' + linkSaveRes.body._id)
@@ -156,7 +154,7 @@ describe('Link CRUD tests', function() {
 
 								// Set assertions
 								(linkUpdateRes.body._id).should.equal(linkSaveRes.body._id);
-								(linkUpdateRes.body.title).should.match('WHY YOU GOTTA BE SO MEAN?');
+								(linkUpdateRes.body.url).should.match('WHY YOU GOTTA BE SO MEAN?');
 
 								// Call the assertion callback
 								done();
@@ -194,7 +192,7 @@ describe('Link CRUD tests', function() {
 			request(app).get('/links/' + linkObj._id)
 				.end(function(req, res) {
 					// Set assertion
-					res.body.should.be.an.Object.with.property('title', link.title);
+					res.body.should.be.an.Object.with.property('url', link.url);
 
 					// Call the assertion callback
 					done();

@@ -14,20 +14,34 @@ var LinkSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
+	url: {
+		type: String,
+		default: '',
+		required: 'URL cannot be blank'
+	},
 	title: {
 		type: String,
-		default: '',
-		trim: true,
-		required: 'Title cannot be blank'
+		default: ''
 	},
-	content: {
+	description: {
 		type: String,
-		default: '',
-		trim: true
+		default: ''
 	},
-	linkbook: {
+	thumbnail_url: {
 		type: String,
-		default: 'Rough book'
+		default: ''
+	},
+	provider_name: {
+		type: String,
+		default: ''
+	},
+	provider_url: {
+		type: String,
+		default: ''
+	},
+	tags: {
+		type: Array,
+		default: ['Bookmark']
 	},
 	user: {
 		type: Schema.ObjectId,

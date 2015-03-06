@@ -5,31 +5,13 @@
 	<div class="col-md-12">
 		<form name="linkForm" class="form-horizontal" data-ng-submit="update(linkForm.$valid)" novalidate>
 			<fieldset>
-				<div class="form-group" ng-class="{ 'has-error' : submitted && linkForm.title.$invalid}">
-					<label class="control-label" for="title">Title</label>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && linkForm.url.$invalid}">
+					<label class="control-label" for="url">URL</label>
 					<div class="controls">
-						<input name="title" type="text" data-ng-model="link.title" id="title" class="form-control" placeholder="Title" required>
+						<input name="url" type="text" data-ng-model="link.url" id="url" class="form-control" placeholder="URL" required>
 					</div>
-					<div ng-show="submitted && linkForm.title.$invalid" class="help-block">
-						<p ng-show="linkForm.title.$error.required" class="text-danger">Title is required</p>
-					</div>
-				</div>
-				<div class="form-group" ng-class="{ 'has-error' : submitted && linkForm.content.$invalid}">
-					<label class="control-label" for="content">Content</label>
-					<div class="controls">
-						<textarea name="content" data-ng-model="link.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
-					</div>
-					<div ng-show="submitted && linkForm.content.$invalid" class="help-block">
-						<p ng-show="linkForm.content.$error.required" class="text-danger">Content is required</p>
-					</div>
-				</div>
-				<div class="form-group" ng-class="{ 'has-error' : submitted && linkForm.linkbook.$invalid}">
-					<label class="control-label" for="linkbook">Linkbook</label>
-					<div class="controls">
-						<input name="linkbook" type="text" data-ng-model="link.linkbook" id="linkbook" class="form-control" placeholder="Linkbook" required>
-					</div>
-					<div ng-show="submitted && linkForm.linkbook.$invalid" class="help-block">
-						<p ng-show="linkForm.linkbook.$error.required" class="text-danger">Linkbook is required</p>
+					<div ng-show="submitted && linkForm.url.$invalid" class="help-block">
+						<p ng-show="linkForm.url.$error.required" class="text-danger">URL is required</p>
 					</div>
 				</div>
 				<div class="form-group">

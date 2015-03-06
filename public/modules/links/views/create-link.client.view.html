@@ -5,22 +5,10 @@
 	<div class="col-md-12">
 		<form name="linkForm" class="form-horizontal" data-ng-submit="create()" novalidate>
 			<fieldset>
-				<div class="form-group" ng-class="{ 'has-error': linkForm.title.$dirty && linkForm.title.$invalid }">
-					<label class="control-label" for="title">Title</label>
+				<div class="form-group" ng-class="{ 'has-error': linkForm.url.$dirty && linkForm.url.$invalid }">
+					<label class="control-label" for="url">URL</label>
 					<div class="controls">
-						<input name="title" type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="content">Content</label>
-					<div class="controls">
-						<textarea name="content" data-ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="linkbook">Linkbook</label>
-					<div class="controls">
-						<input name="linkbook" type="text" data-ng-model="linkbook" id="linkbook" class="form-control" placeholder="Linkbook" required>
+						<input name="url" type="text" data-ng-model="url" id="url" class="form-control" placeholder="URL" required>
 					</div>
 				</div>
 				<div class="form-group">

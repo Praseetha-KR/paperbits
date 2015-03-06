@@ -53,7 +53,7 @@
 		it('$scope.find() should create an array with at least one note object fetched from XHR', inject(function(Notes) {
 			// Create sample note using the Notes service
 			var sampleNote = new Notes({
-				title: 'An Note about Paperbits',
+				title: 'A Note about Paperbits',
 				content: 'Paperbits rocks!',
 				notebook: 'Paperbits in a notebook!'
 			});
@@ -75,7 +75,7 @@
 		it('$scope.findOne() should create an array with one note object fetched from XHR using a noteId URL parameter', inject(function(Notes) {
 			// Define a sample note object
 			var sampleNote = new Notes({
-				title: 'An Note about Paperbits',
+				title: 'A Note about Paperbits',
 				content: 'Paperbits rocks!',
 				notebook: 'Paperbits in a notebook!'
 			});
@@ -97,7 +97,7 @@
 		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function(Notes) {
 			// Create a sample note object
 			var sampleNotePostData = new Notes({
-				title: 'An Note about Paperbits',
+				title: 'A Note about Paperbits',
 				content: 'Paperbits rocks!',
 				notebook: 'Paperbits in a notebook!'
 			});
@@ -105,15 +105,15 @@
 			// Create a sample note response
 			var sampleNoteResponse = new Notes({
 				_id: '525cf20451979dea2c000001',
-				title: 'An Note about Paperbits',
+				title: 'A Note about Paperbits',
 				content: 'Paperbits rocks!',
 				notebook: 'Paperbits in a notebook!'
 			});
 
 			// Fixture mock form input values
-			scope.title = 'An Note about Paperbits';
+			scope.title = 'A Note about Paperbits';
 			scope.content = 'Paperbits rocks!';
-			scope.content = 'Paperbits in a notebook!';
+			scope.notebook = 'Paperbits in a notebook!';
 
 			// Set POST response
 			$httpBackend.expectPOST('notes', sampleNotePostData).respond(sampleNoteResponse);
@@ -135,7 +135,7 @@
 			// Define a sample note put data
 			var sampleNotePutData = new Notes({
 				_id: '525cf20451979dea2c000001',
-				title: 'An Note about Paperbits',
+				title: 'A Note about Paperbits',
 				content: 'Paperbits Rocks!',
 				notebook: 'Paperbits in a notebook!'
 			});

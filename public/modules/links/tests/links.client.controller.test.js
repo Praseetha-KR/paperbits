@@ -53,9 +53,7 @@
 		it('$scope.find() should create an array with at least one link object fetched from XHR', inject(function(Links) {
 			// Create sample link using the Links service
 			var sampleLink = new Links({
-				title: 'An Link about Paperbits',
-				content: 'Paperbits rocks!',
-				linkbook: 'Paperbits in a linkbook!'
+				url: 'A Link on Paperbits'
 			});
 
 			// Create a sample links array that includes the new link
@@ -75,9 +73,7 @@
 		it('$scope.findOne() should create an array with one link object fetched from XHR using a linkId URL parameter', inject(function(Links) {
 			// Define a sample link object
 			var sampleLink = new Links({
-				title: 'An Link about Paperbits',
-				content: 'Paperbits rocks!',
-				linkbook: 'Paperbits in a linkbook!'
+				url: 'A Link on Paperbits'
 			});
 
 			// Set the URL parameter
@@ -97,23 +93,17 @@
 		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function(Links) {
 			// Create a sample link object
 			var sampleLinkPostData = new Links({
-				title: 'An Link about Paperbits',
-				content: 'Paperbits rocks!',
-				linkbook: 'Paperbits in a linkbook!'
+				url: 'A Link on Paperbits'
 			});
 
 			// Create a sample link response
 			var sampleLinkResponse = new Links({
 				_id: '525cf20451979dea2c000001',
-				title: 'An Link about Paperbits',
-				content: 'Paperbits rocks!',
-				linkbook: 'Paperbits in a linkbook!'
+				url: 'A Link on Paperbits'
 			});
 
 			// Fixture mock form input values
-			scope.title = 'An Link about Paperbits';
-			scope.content = 'Paperbits rocks!';
-			scope.content = 'Paperbits in a linkbook!';
+			scope.url = 'A Link on Paperbits';
 
 			// Set POST response
 			$httpBackend.expectPOST('links', sampleLinkPostData).respond(sampleLinkResponse);
@@ -123,9 +113,7 @@
 			$httpBackend.flush();
 
 			// Test form inputs are reset
-			expect(scope.title).toEqual('');
-			expect(scope.content).toEqual('');
-			expect(scope.linkbook).toEqual('');
+			expect(scope.url).toEqual('');
 
 			// Test URL redirection after the link was created
 			expect($location.path()).toBe('/links/' + sampleLinkResponse._id);
@@ -135,9 +123,7 @@
 			// Define a sample link put data
 			var sampleLinkPutData = new Links({
 				_id: '525cf20451979dea2c000001',
-				title: 'An Link about Paperbits',
-				content: 'Paperbits Rocks!',
-				linkbook: 'Paperbits in a linkbook!'
+				url: 'A Link on Paperbits'
 			});
 
 			// Mock link in scope

@@ -29,9 +29,7 @@ describe('Link Model Unit Tests:', function() {
 
 		user.save(function() {
 			link = new Link({
-				title: 'Link Title',
-				content: 'Link Content',
-				linkbook: 'Link Book',
+				url: 'Link Url',
 				user: user
 			});
 
@@ -47,8 +45,8 @@ describe('Link Model Unit Tests:', function() {
 			});
 		});
 
-		it('should be able to show an error when try to save without title', function(done) {
-			link.title = '';
+		it('should be able to show an error when try to save without url', function(done) {
+			link.url = '';
 
 			return link.save(function(err) {
 				should.exist(err);

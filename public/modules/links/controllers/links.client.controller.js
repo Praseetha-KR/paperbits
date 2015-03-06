@@ -9,9 +9,7 @@ angular.module('links').controller('LinksController', ['$scope', '$stateParams',
 		$scope.create = function() {
 			// Create new Link object
 			var link = new Links({
-				title: this.title,
-				content: this.content,
-				linkbook: this.linkbook
+				url: this.url
 			});
 
 			// Redirect after save
@@ -19,9 +17,7 @@ angular.module('links').controller('LinksController', ['$scope', '$stateParams',
 				$location.path('links/' + response._id);
 
 				// Clear form fields
-				$scope.title = '';
-				$scope.content = '';
-				$scope.linkbook = '';
+				$scope.url = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
