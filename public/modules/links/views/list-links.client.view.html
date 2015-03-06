@@ -1,0 +1,22 @@
+<section data-ng-controller="LinksController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Links</h1>
+	</div>
+	<div class="list-group">
+		<a data-ng-repeat="link in links" data-ng-href="#!/links/{{link._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="link.created | date:'mediumDate'"></span>
+				by
+				<span data-ng-bind="link.user.displayName"></span>
+				on
+				<span data-ng-bind="link.linkbook"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="link.title"></h4>
+			<p class="list-group-item-text" data-ng-bind="link.content"></p>
+		</a>
+	</div>
+	<div class="alert alert-warning text-center" data-ng-if="links.$resolved && !links.length">
+		No links yet, why don't you <a href="/#!/links/create">create one</a>?
+	</div>
+</section>
