@@ -5,113 +5,113 @@
  */
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
-	Article = mongoose.model('Article'),
+	Todo = mongoose.model('Todo'),
 	_ = require('lodash');
 
 /**
- * Create a article
+ * Create a todo
  */
 exports.create = function(req, res) {
-	var article = new Article(req.body);
-	article.user = req.user;
+	var todo = new Todo(req.body);
+	todo.user = req.user;
 
-	article.save(function(err) {
+	todo.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(article);
+			res.json(todo);
 		}
 	});
 };
 
 /**
- * Show the current article
+ * Show the current todo
  */
 exports.read = function(req, res) {
-	res.json(req.article);
+	res.json(req.todo);
 };
 
 /**
- * Update a article
+ * Update a todo
  */
 exports.update = function(req, res) {
-	var article = req.article;
+	var todo = req.todo;
 
-	article = _.extend(article, req.body);
+	todo = _.extend(todo, req.body);
 
-	article.save(function(err) {
+	todo.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(article);
+			res.json(todo);
 		}
 	});
 };
 
 /**
- * Delete an article
+ * Delete an todo
  */
 exports.delete = function(req, res) {
-	var article = req.article;
+	var todo = req.todo;
 
-	article.remove(function(err) {
+	todo.remove(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(article);
+			res.json(todo);
 		}
 	});
 };
 
 /**
- * List of Articles
+ * List of Todos
  */
 exports.list = function(req, res) {
-	Article.find().sort('-created').populate('user', 'displayName').exec(function(err, articles) {
+	Todo.find().sort('-created').populate('user', 'displayName').exec(function(err, todos) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(articles);
+			res.json(todos);
 		}
 	});
 };
 
 /**
- * Article middleware
+ * Todo middleware
  */
-exports.articleByID = function(req, res, next, id) {
+exports.todoByID = function(req, res, next, id) {
 
 	if (!mongoose.Types.ObjectId.isValid(id)) {
 		return res.status(400).send({
-			message: 'Article is invalid'
+			message: 'Todo is invalid'
 		});
 	}
 
-	Article.findById(id).populate('user', 'displayName').exec(function(err, article) {
+	Todo.findById(id).populate('user', 'displayName').exec(function(err, todo) {
 		if (err) return next(err);
-		if (!article) {
+		if (!todo) {
 			return res.status(404).send({
-				message: 'Article not found'
-			});
+  				message: 'Todo not found'
+  			});
 		}
-		req.article = article;
+		req.todo = todo;
 		next();
 	});
 };
 
 /**
- * Article authorization middleware
+ * Todo authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
-	if (req.article.user.id !== req.user.id) {
+	if (req.todo.user.id !== req.user.id) {
 		return res.status(403).send({
 			message: 'User is not authorized'
 		});

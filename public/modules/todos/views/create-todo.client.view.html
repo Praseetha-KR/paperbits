@@ -1,0 +1,40 @@
+<section data-ng-controller="TodosController">
+	<div class="page-header">
+		<h1><a href="/#!/todos"><i class="fa fa-arrow-left"></i></a> New Todo</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="todoForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error': todoForm.task.$dirty && todoForm.task.$invalid }">
+					<label class="control-label" for="task">Task</label>
+					<div class="controls">
+						<input name="task" type="text" data-ng-model="task" id="task" class="form-control" placeholder="Task" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="content">Content</label>
+					<div class="controls">
+						<textarea name="content" data-ng-model="content" id="content" class="form-control" cols="30" rows="5" placeholder="Content"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="priority">Priority</label>
+					<select class="form-control" name="priority" data-ng-model="priority" id="priority" required>
+						<option value="0">Zero</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+						<option value="4">Four</option>
+						<option value="5">Five</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>

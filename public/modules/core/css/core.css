@@ -1,5 +1,15 @@
+* {
+	box-sizing: border-box;
+}
 .content {
-	margin-top: 50px;
+	position: absolute;
+	left: 80px;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	overflow-y: scroll;
+	/*background-color: yellow;*/
+
 }
 .undecorated-link:hover {
 	text-decoration: none;
@@ -17,4 +27,120 @@
 body.ng-cloak
 {
 	display: block;
+}
+body {
+	/*background-image: url('../img/background/bgnoise_lg.png');*/
+	background-color: #edeff0;
+}
+.navbar-default {
+	background-image: none;
+	background-color: #16191A;
+	border-color: #F0F0F0;
+	-moz-box-shadow: 0 1px 0 rgba(0,0,0,.2),0 2px 7px rgba(0,0,0,.15);
+	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,.2),0 2px 7px rgba(0,0,0,.15);
+	box-shadow: 0 1px 0 rgba(0,0,0,.2),0 2px 7px rgba(0,0,0,.15); 
+	min-height: 100px;
+}
+.navbar-default .navbar-nav > li > a {
+	margin-top: 49px;
+}
+.navbar-default .navbar-nav:first-child > li:first-child > a {
+	background-color: orange;
+}
+.navbar-default .navbar-nav:first-child > li:nth-child(2) > a {
+	background-color: lightgreen;
+}
+.navbar-default .navbar-nav:first-child > li:nth-child(3) > a {
+	background-color: pink;
+}
+a.list-group-item.sticky-note {
+	background-color: lightyellow;
+}
+a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
+	background-color: yellow;
+}
+/* sidebar */
+.sidebar {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 80px;
+	background-color: #3e474f;
+}
+.sidebar a {
+	color: #8C989E;
+}
+.sidebar .nav li {
+	width: 100%;
+}
+.sidebar .nav li a{
+	text-align: center;
+}
+.sidebar .nav li.active a{
+	background-color: #2e353b;
+	color: #FFF;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+	background-color: #3e474f;
+}
+.navbar-brand, .navbar-nav > li > a {
+	text-shadow: none;
+}
+
+/*
+*/
+.color-list .item{
+	width: 25%;
+	float: left;
+	height: 130px;
+	padding: 10px;
+}
+.color-list .item .color{
+	width: 100%;
+	height: 100%;
+	border: 5px solid #FFF;
+	-moz-box-shadow: inset 0 1px 1px 0 rgba(0,0,0,0.06), 0 1px 1px 0 rgba(0,0,0,0.06),0 2px 5px 0 rgba(0,0,0,0.2);
+	-webkit-box-shadow: inset 0 1px 1px 0 rgba(0,0,0,0.06), 0 1px 1px 0 rgba(0,0,0,0.06),0 2px 5px 0 rgba(0,0,0,0.2);
+	box-shadow: inset 0 1px 1px 0 rgba(0,0,0,0.06), 0 1px 1px 0 rgba(0,0,0,0.06),0 2px 5px 0 rgba(0,0,0,0.2);
+}
+.color-match .item{
+	width: 100%;
+	float: left;
+	height: 80px;
+}
+.color-match .item .color{
+	width: 100%;
+	height: 100%;
+}
+.todo-list .item {
+	width: 25%;
+	float: left;
+	padding: 10px;
+}
+.todo-list .item .todo {
+	background-color: rgb(255, 255, 182);
+	width: 100%;
+	padding: 1em;
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),0 2px 5px 0 rgba(0, 0, 0, 0.13);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),0 2px 5px 0 rgba(0, 0, 0, 0.13);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),0 2px 5px 0 rgba(0, 0, 0, 0.13);
+}
+.todo-list .item .priority-0.todo {
+	background-color: rgb(255, 255, 255);
+}
+.todo-list .item .priority-1.todo {
+	background-color: rgb(255, 255, 182);
+}
+.todo-list .item .priority-2.todo {
+	background-color: rgb(169, 247, 169);
+}
+.todo-list .item .priority-3.todo {
+	background-color: rgb(184, 225, 250);
+}
+.todo-list .item .priority-4.todo {
+	background-color: rgb(255, 210, 128);
+}
+.todo-list .item .priority-5.todo {
+	background-color: rgb(255, 184, 184);
 }

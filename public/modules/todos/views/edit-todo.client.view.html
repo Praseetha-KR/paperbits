@@ -1,0 +1,53 @@
+<section data-ng-controller="TodosController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1><a href="/#!/todos"><i class="fa fa-arrow-left"></i></a> Edit Todo</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="todoForm" class="form-horizontal" data-ng-submit="update(todoForm.$valid)" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && todoForm.task.$invalid}">
+					<label class="control-label" for="task">Task</label>
+					<div class="controls">
+						<input name="task" type="text" data-ng-model="todo.task" id="task" class="form-control" placeholder="Task" required>
+					</div>
+					<div ng-show="submitted && todoForm.task.$invalid" class="help-block">
+						<p ng-show="todoForm.task.$error.required" class="text-danger">Task is required</p>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.content.$invalid}">
+					<label class="control-label" for="content">Content</label>
+					<div class="controls">
+						<textarea name="content" data-ng-model="article.content" id="content" class="form-control" cols="30" rows="2" placeholder="Content"></textarea>
+					</div>
+					<div ng-show="submitted && articleForm.content.$invalid" class="help-block">
+						<p ng-show="articleForm.content.$error.required" class="text-danger">Content is required</p>
+					</div>
+				</div>
+				
+				<div class="form-group" ng-class="{ 'has-error' : submitted && todoForm.priority.$invalid}">
+					<label class="control-label" for="priority">Priority</label>
+					<select class="form-control" name="priority" data-ng-model="todo.priority" id="priority" required>
+						<option value="0">Zero</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+						<option value="4">Four</option>
+						<option value="5">Five</option>
+					</select>
+					<!-- <div class="controls">
+						<input name="priority" type="range" min="0" max="5" data-ng-model="todo.priority" id="priority" class="" placeholder="Priority" required>
+					</div> -->
+					<div ng-show="submitted && todoForm.priority.$invalid" class="help-block">
+						<p ng-show="todoForm.priority.$error.required" class="text-danger">Priority is required</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Update" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>

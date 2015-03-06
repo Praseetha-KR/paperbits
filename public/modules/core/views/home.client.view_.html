@@ -1,0 +1,263 @@
+<div class="container-fluid" data-ng-controller="HeaderController">
+    <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/#!/" class="navbar-brand">Papercuts</a>
+    </div>
+    <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
+        <ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">
+            <li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
+                <a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle>
+                    <span data-ng-bind="item.title"></span>
+                    <b class="caret"></b>
+                </a>
+                <ul ng-switch-when="dropdown" class="dropdown-menu">
+                    <li data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
+                        <a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
+                    </li>
+                </ul>
+                <a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
+            <li ui-route="/signup" ng-class="{active: $uiRoute}">
+                <a href="/#!/signup">Sign Up</a>
+            </li>
+            <li class="divider-vertical"></li>
+            <li ui-route="/signin" ng-class="{active: $uiRoute}">
+                <a href="/#!/signin">Sign In</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
+            <li class="dropdown" dropdown>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" dropdown-toggle>
+                    <span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/#!/settings/profile">Edit Profile</a>
+                    </li>
+                    <li>
+                        <a href="/#!/settings/accounts">Manage Social Accounts</a>
+                    </li>
+                    <li data-ng-show="authentication.user.provider === 'local'">
+                        <a href="/#!/settings/password">Change Password</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="/auth/signout">Signout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+
+
+
+
+
+
+<div class="three-pane-app three-pane-app-with-color">
+    <!-- <div class="top"><div class="title"></div></div> -->
+    <div class="bottom">
+        <div class="left">
+            <section data-ng-controller="TodosController" data-ng-init="find()">
+                <div class="page-header">
+                    <h1>Todo</h1>
+                </div>
+                <div class="list-group">
+                    <a data-ng-repeat="todo in todos" data-ng-href="#!/todos/{{todo._id}}" class="list-group-item sticky-note">
+                        <h4 class="list-group-item-heading" data-ng-bind="todo.task"></h4>
+                        <small class="list-group-item-text">
+                            <span data-ng-bind="todo.created | date:'mediumDate'"></span>
+                        </small>
+                    </a>
+                </div>
+                <div class="alert alert-warning text-center" data-ng-if="todos.$resolved && !todos.length">
+                    No todos yet, why don't you <a href="/#!/todos/create">create one</a>?
+                </div>
+            </section>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="middle">
+            <div class="page">
+                <section data-ng-controller="ArticlesController" data-ng-init="find()">
+                    <div class="page-header">
+                        <h1>Notes</h1>
+                    </div>
+                    <div class="list-group">
+                        <a data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
+                            <h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
+                            <small class="list-group-item-text">
+                                <span data-ng-bind="article.created | date:'mediumDate'"></span>
+                            </small>
+                        </a>
+                    </div>
+                    <div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
+                        No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
+                    </div>
+                </section>
+                
+                <p class="mock-paragraph"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></p>
+                <p class="mock-paragraph"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></p>
+                <p class="mock-paragraph"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></p>
+                <p class="mock-paragraph"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></p>
+                <p class="mock-paragraph"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></p>
+                <p class="mock-paragraph"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></p>
+                <p class="mock-paragraph"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></p>
+                <p class="mock-paragraph"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></p>
+                <p class="mock-paragraph"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></p>
+            </div>
+        </div>
+        <div class="right">
+            <section data-ng-controller="ColorsController" data-ng-init="find()">
+                <div class="page-header">
+                    <h1>Colors</h1>
+                </div>
+                <div data-ng-repeat="color in colors" class="item" style="background-color: {{ color.color_value }};"></div>
+                <span data-ng-repeat="color in colors" class="item" style="background-color: {{ color.color_value }};" class="dropdown" dropdown>
+                    <h4 class="list-group-item-heading text-center" class="dropdown-toggle" data-toggle="dropdown" dropdown-toggle>&nbsp;</h4>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a><input type="text" readonly value="rgba"><button>Copy</button></a>
+                        </li>
+                        <li>
+                            <a><input type="text" readonly value="hex"><button>Copy</button></a>
+                        </li>
+                        <li>
+                            <a><input type="text" readonly value="hsla"><button>Copy</button></a>
+                        </li>
+                    </ul>
+                </span>
+                <div class="alert alert-warning text-center" data-ng-if="colors.$resolved && !colors.length">
+                    No colors yet, why don't you <a href="/#!/colors/create">create one</a>?
+                </div>
+            </section>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+</div>
+
+        
+<!-- <section data-ng-controller="HomeController">
+    <div>
+        <h2>Papercuts on the web!</h2>
+    </div>
+</section>  
+
+<div class="row">
+    <section class="col-sm-4" data-ng-controller="ArticlesController" data-ng-init="find()">
+        
+    </section>
+
+    <section class="col-sm-4" data-ng-controller="ArticlesController" data-ng-init="find()">
+        <div class="page-header">
+            <h1>Articles</h1>
+        </div>
+        <div class="list-group">
+            <a data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
+                <h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
+                <small class="list-group-item-text">
+                    <span data-ng-bind="article.created | date:'mediumDate'"></span>
+                </small>
+            </a>
+        </div>
+        <div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
+            No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
+        </div>
+    </section>
+
+    <section class="col-sm-4" data-ng-controller="ColorsController" data-ng-init="find()">
+        <div class="page-header">
+            <h1>Colors</h1>
+        </div>
+        <div class="list-group">
+            <span data-ng-repeat="color in colors" class="col-md-2" style="background-color: {{ color.color_value }};" class="dropdown" dropdown>
+                <h4 class="list-group-item-heading text-center" class="dropdown-toggle" data-toggle="dropdown" dropdown-toggle>&nbsp;</h4>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a><input type="text" readonly value="rgba"><button>Copy</button></a>
+                    </li>
+                    <li>
+                        <a><input type="text" readonly value="hex"><button>Copy</button></a>
+                    </li>
+                    <li>
+                        <a><input type="text" readonly value="hsla"><button>Copy</button></a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <div class="alert alert-warning text-center" data-ng-if="colors.$resolved && !colors.length">
+            No colors yet, why don't you <a href="/#!/colors/create">create one</a>?
+        </div>
+    </section>
+</div> -->

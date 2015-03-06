@@ -7,14 +7,14 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Article Schema
+ * Todo Schema
  */
-var ArticleSchema = new Schema({
+var TodoSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
 	},
-	title: {
+	task: {
 		type: String,
 		default: '',
 		trim: true,
@@ -25,10 +25,18 @@ var ArticleSchema = new Schema({
 		default: '',
 		trim: true
 	},
+	priority: {
+		type: Number,
+		default: 1
+	},
+	done: {
+		type: Boolean,
+		default: 0
+	},
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
 	}
 });
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Todo', TodoSchema);

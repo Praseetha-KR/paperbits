@@ -1,0 +1,84 @@
+<!-- <section data-ng-controller="TodosController">
+	<div class="page-header">
+		<h1>New Todo</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="todoForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error': todoForm.task.$dirty && todoForm.task.$invalid }">
+					<label class="control-label" for="task">Task</label>
+					<div class="controls">
+						<input name="task" type="text" data-ng-model="task" id="task" class="form-control" placeholder="Task" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="priority">Priority</label>
+					<div class="controls">
+						<textarea name="priority" data-ng-model="priority" id="priority" class="form-control" cols="30" rows="10" placeholder="Priority"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section> -->
+<section data-ng-controller="TodosController" data-ng-init="find()">
+	<div class="row">
+		<div class="page-header">
+			<h3>Todo <a href="/#!/todos/create" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;add</a></h3>
+			<h5><a href="" ng-click="predicate='priority'; reverse=true">Priority</a></h5>
+			<h5><a href="" ng-click="predicate='created'; reverse=true">Date of creation</a></h5>
+		</div>
+		<div class="todo-list">
+			<div data-ng-repeat="todo in todos | filter: {'done':'false'} | orderBy:predicate:reverse" class="item">
+				<div class="todo priority-{{todo.priority}}">
+					<h4>
+						<a data-ng-show="authentication.user._id == todo.user._id" ng-click="finishTask(todo)"><i class="fa fa-square-o"></i></a>
+						<span class="list-group-item-heading" data-ng-bind="todo.task"></span>
+					</h4>
+					<p>{{todo.content}}</p>
+
+					<div data-ng-show="authentication.user._id == todo.user._id">
+						<a href="/#!/todos/{{todo._id}}/edit"><i class="glyphicon glyphicon-edit"></i></a>
+						<a data-ng-click="remove(todo);"><i class="glyphicon glyphicon-trash"></i></a>
+						<span class="pull-right" data-ng-bind="todo.created | date:'mediumDate'"></span>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="alert alert-warning text-center" data-ng-if="todos.$resolved && !todos.length">
+			No todos yet, why don't you <a href="/#!/todos/create">create one</a>?
+		</div>
+	</div>
+	<div class="row">
+		<div class="page-header">
+			<h3>Finished Tasks</h3>
+		</div>
+		<div class="todo-list">
+			<div data-ng-repeat="todo in todos | filter: {'done':'true'}" class="item">
+				<div class="todo priority-{{todo.priority}}">
+					<h4>
+						<a data-ng-show="authentication.user._id == todo.user._id" ng-click="finishTask(todo)"><i class="fa fa-check-square-o"></i></a>
+						<span class="list-group-item-heading" data-ng-bind="todo.task"></span>
+					</h4>
+					<p>{{todo.content}}</p>
+
+					<div data-ng-show="authentication.user._id == todo.user._id">
+						<a href="/#!/todos/{{todo._id}}/edit"><i class="glyphicon glyphicon-edit"></i></a>
+						<a data-ng-click="remove(todo);"><i class="glyphicon glyphicon-trash"></i></a>
+						<span class="pull-right" data-ng-bind="todo.created | date:'mediumDate'"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="alert alert-warning text-center" data-ng-if="todos.$resolved && !todos.length">
+			No todos yet, why don't you <a href="/#!/todos/create">create one</a>?
+		</div>
+	</div>
+</section>
