@@ -119,22 +119,6 @@
         </div>
         <div class="middle">
             <div class="page">
-                <section data-ng-controller="ArticlesController" data-ng-init="find()">
-                    <div class="page-header">
-                        <h1>Notes</h1>
-                    </div>
-                    <div class="list-group">
-                        <a data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
-                            <h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
-                            <small class="list-group-item-text">
-                                <span data-ng-bind="article.created | date:'mediumDate'"></span>
-                            </small>
-                        </a>
-                    </div>
-                    <div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
-                        No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
-                    </div>
-                </section>
                 
                 <p class="mock-paragraph"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></p>
                 <p class="mock-paragraph"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></p>
@@ -206,58 +190,3 @@
         </div>
     </div>
 </div>
-
-        
-<!-- <section data-ng-controller="HomeController">
-    <div>
-        <h2>Papercuts on the web!</h2>
-    </div>
-</section>  
-
-<div class="row">
-    <section class="col-sm-4" data-ng-controller="ArticlesController" data-ng-init="find()">
-        
-    </section>
-
-    <section class="col-sm-4" data-ng-controller="ArticlesController" data-ng-init="find()">
-        <div class="page-header">
-            <h1>Articles</h1>
-        </div>
-        <div class="list-group">
-            <a data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
-                <h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
-                <small class="list-group-item-text">
-                    <span data-ng-bind="article.created | date:'mediumDate'"></span>
-                </small>
-            </a>
-        </div>
-        <div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
-            No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
-        </div>
-    </section>
-
-    <section class="col-sm-4" data-ng-controller="ColorsController" data-ng-init="find()">
-        <div class="page-header">
-            <h1>Colors</h1>
-        </div>
-        <div class="list-group">
-            <span data-ng-repeat="color in colors" class="col-md-2" style="background-color: {{ color.color_value }};" class="dropdown" dropdown>
-                <h4 class="list-group-item-heading text-center" class="dropdown-toggle" data-toggle="dropdown" dropdown-toggle>&nbsp;</h4>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a><input type="text" readonly value="rgba"><button>Copy</button></a>
-                    </li>
-                    <li>
-                        <a><input type="text" readonly value="hex"><button>Copy</button></a>
-                    </li>
-                    <li>
-                        <a><input type="text" readonly value="hsla"><button>Copy</button></a>
-                    </li>
-                </ul>
-            </span>
-        </div>
-        <div class="alert alert-warning text-center" data-ng-if="colors.$resolved && !colors.length">
-            No colors yet, why don't you <a href="/#!/colors/create">create one</a>?
-        </div>
-    </section>
-</div> -->

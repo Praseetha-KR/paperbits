@@ -11,4 +11,12 @@ angular.module('links').factory('Links', ['$resource',
 			}
 		});
 	}
-]);
+])
+.factory('embedFactory', ['$resource', function($resource) {
+    return $resource(
+        'http://api.embed.ly/1/oembed?url=:url',
+        { url: '@url' },
+
+        { 'query': { 'method': 'GET', isArray: false } }
+    );
+}]);

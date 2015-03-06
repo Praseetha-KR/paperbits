@@ -144,3 +144,18 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 .todo-list .item .priority-5.todo {
 	background-color: rgb(255, 184, 184);
 }
+
+.user-nav  {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #2e353b;
+    color: white;
+}
+
+.link-thumb {
+	width: 100%;
+}

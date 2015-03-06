@@ -1,27 +1,5 @@
 <div data-ng-controller="HeaderController">
 	<nav class="side-nav" role="navigation">
-		<ul class="nav user-nav" data-ng-show="authentication.user">
-			<li class="dropdown" dropdown>
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" dropdown-toggle>
-					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="/#!/settings/profile">Edit Profile</a>
-					</li>
-					<li>
-						<a href="/#!/settings/accounts">Manage Social Accounts</a>
-					</li>
-					<li data-ng-show="authentication.user.provider === 'local'">
-						<a href="/#!/settings/password">Change Password</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="/auth/signout">Signout</a>
-					</li>
-				</ul>
-			</li>
-		</ul>
 		<ul class="nav auth-nav" data-ng-hide="authentication.user">
 			<li ui-route="/signup" ng-class="{active: $uiRoute}">
 				<a href="/#!/signup">Sign Up</a>
@@ -32,6 +10,7 @@
 			</li>
 		</ul>
 		<ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">
+			<li><a class="logo">paper<br>bits</a></li>
 			<li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
 				<a href="/#!/{{item.link}}"><i class="fa fa-{{item.icon}} fa-2x"></i><br>{{item.title}}</a>
 			</li>
@@ -48,6 +27,29 @@
 				</ul>
 				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 			</li> -->
+		</ul>
+
+		<ul class="nav user-nav" data-ng-show="authentication.user">
+			<li class="dropup" dropdown>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" dropdown-toggle>
+					<i class="fa fa-power-off fa-2x"></i>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="/#!/settings/profile" data-ng-bind="authentication.user.displayName"></a>
+					</li>
+					<!-- <li>
+						<a href="/#!/settings/accounts">Manage Social Accounts</a>
+					</li> -->
+					<!-- <li data-ng-show="authentication.user.provider === 'local'">
+						<a href="/#!/settings/password">Change Password</a>
+					</li> -->
+					<li class="divider"></li>
+					<li>
+						<a href="/auth/signout">Signout</a>
+					</li>
+				</ul>
+			</li>
 		</ul>
 	</nav>
 </div>
