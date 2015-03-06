@@ -1,0 +1,51 @@
+<!-- <section data-ng-controller="ColorsController">
+	<div class="page-header">
+		<h1>New Color</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="colorForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error': colorForm.color_value.$dirty && colorForm.color_value.$invalid }">
+					<label class="control-label" for="color_value">color_value</label>
+					<div class="controls">
+						<input name="color_value" type="text" data-ng-model="color_value" id="color_value" class="form-control" placeholder="color_value" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section> -->
+<section data-ng-controller="ColorsController" data-ng-init="find()">
+	<div class="page-header">
+		<h3>Colors <a href="/#!/colors/create" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;add</a></h3>
+	</div>
+
+	<div class="color-list">
+		<div data-ng-repeat="color in colors" data-ng-href="#!/colors/{{color._id}}" class="item">
+			<div class="color" style="background-color: {{ color.hex }};">
+				<h4 class="list-group-item-heading text-center">{{color.rgb}}<br>{{color.hex}}<br>{{color.hsl}}</h4>
+
+				<div class="pull-right" data-ng-show="authentication.user._id == color.user._id">
+					<a class="btn btn-primary" href="/#!/colors/{{color._id}}">
+						<i class="glyphicon glyphicon-eye-open"></i>
+					</a>
+					<a class="btn btn-primary" href="/#!/colors/{{color._id}}/edit">
+						<i class="glyphicon glyphicon-edit"></i>
+					</a>
+					<a class="btn btn-primary" data-ng-click="remove(color);">
+						<i class="glyphicon glyphicon-trash"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="alert alert-warning text-center" data-ng-if="colors.$resolved && !colors.length">
+		No colors yet, why don't you <a href="/#!/colors/create">create one</a>?
+	</div>
+</section>

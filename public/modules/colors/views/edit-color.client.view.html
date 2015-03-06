@@ -1,0 +1,26 @@
+<section data-ng-controller="ColorsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1><a href="/#!/colors"><i class="fa fa-arrow-left"></i></a> Edit Color</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="colorForm" class="form-horizontal" data-ng-submit="update(colorForm.$valid)" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && colorForm.color_value.$invalid}">
+					<label class="control-label" for="color_value">color_value</label>
+					<div class="controls">
+						<input name="color_value" type="text" data-ng-model="color.color_value" id="color_value" class="form-control" placeholder="color_value" required>
+					</div>
+					<div ng-show="submitted && colorForm.color_value.$invalid" class="help-block">
+						<p ng-show="colorForm.color_value.$error.required" class="text-danger">color_value is required</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Update" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>

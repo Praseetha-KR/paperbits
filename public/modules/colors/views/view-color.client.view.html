@@ -1,0 +1,28 @@
+<section data-ng-controller="ColorsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1><a href="/#!/colors"><i class="fa fa-arrow-left"></i></a> {{color.color_value}}</h1>
+	</div>
+	<div class="pull-right" data-ng-show="authentication.user._id == color.user._id">
+		<a class="btn btn-primary" href="/#!/colors/{{color._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="color.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="color.user.displayName"></span>
+		</em>
+	</small>
+	<div class="row" style="background-color: {{ color.hex }};">
+		<div class="col-xs-offset-4 col-xs-8 color-match" data-ng-init="find()">
+			<a data-ng-repeat="color in colors" data-ng-href="#!/colors/{{color._id}}" class="item">
+				<div class="color" style="background-color: {{ color.hex }};"></div>
+			</a>
+		</div>
+	</div>
+</section>
