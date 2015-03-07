@@ -24,16 +24,31 @@ module.exports = {
 				'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
 			],
 			js: [
-				'public/lib/angular/angular.min.js',
-				'public/lib/angular-resource/angular-resource.min.js',
-				'public/lib/angular-animate/angular-animate.min.js',
-				'public/lib/angular-ui-router/release/angular-ui-router.min.js',
-				'public/lib/angular-ui-utils/ui-utils.min.js',
-				'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js'
+				'public/lib/jquery/dist/jquery.min.js',
+				'public/lib/angular/angular.js',
+				'public/lib/angular-resource/angular-resource.js',
+				'public/lib/angular-animate/angular-animate.js',
+				'public/lib/angular-ui-router/release/angular-ui-router.js',
+				'public/lib/angular-ui-utils/ui-utils.js',
+				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+				'public/lib/eventie/eventie.js',
+				'public/lib/doc-ready/doc-ready.js',
+				'public/lib/eventEmitter/eventEmitter.js',
+				'public/lib/get-style-property/get-style-property.js',
+				'public/lib/get-size/get-size.js',
+				'public/lib/matches-selector/matches-selector.js',
+				'public/lib/outlayer/item.js',
+				'public/lib/outlayer/outlayer.js',
+				'public/lib/masonry/dist/masonry.pkgd.js',
+				'public/lib/imagesloaded/imagesloaded.pkgd.js',
+				'public/lib/angular-masonry/angular-masonry.js'
 			]
 		},
 		css: 'public/dist/application.min.css',
 		js: 'public/dist/application.min.js'
+	},
+	embedly: {
+		key: process.env.EMBEDLY_KEY ||'EMBEDLY_KEY'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
