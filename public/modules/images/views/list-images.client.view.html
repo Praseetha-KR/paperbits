@@ -1,15 +1,12 @@
 <section data-ng-controller="ImagesController" data-ng-init="find()">
 	<div class="page-header">
-		<h3>Images <a href="/#!/images/create" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;add</a></h3>
+		<h3><span class="main-title">Images</span><a href="/#!/images/create" class="btn btn-yellow material"><i class="fa fa-plus"></i>&nbsp;&nbsp;add</a></h3>
 	</div>
 	<div masonry class="images">
-		<div data-ng-repeat="image in images" class="item masonry-brick">
-			<img class="image-thumb" src="{{image.resized_url}}" alt="">
-			<small class="list-group-item-text">
-				Saved on
-				<span data-ng-bind="image.created | date:'mediumDate'"></span>
-			</small>
-			<a data-ng-href="#!/images/{{image._id}}" class="btn btn-default"><i class="fa fa-eye"></i></a>
+		<div data-ng-repeat="image in images track by $index" class="item masonry-brick">
+			<a class="image material" data-ng-href="#!/images/{{image._id}}">
+				<img class="image-thumb" src="{{image.resized_url}}" alt="{{image.url}}">
+			</a>
 		</div>
 	</div>
 	<div class="alert alert-warning text-center" data-ng-if="images.$resolved && !images.length">

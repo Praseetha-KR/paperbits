@@ -1,19 +1,22 @@
 <section data-ng-controller="ImagesController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="image.url"></h1>
+		<h3>
+			<a href="/#!/images" class="back-arrow"><i class="fa fa-arrow-left"></i></a><span class="title">image</span>
+			<span data-ng-show="authentication.user._id == image.user._id">
+				<a class="btn btn-yellow material" href="/#!/images/{{image._id}}/edit">
+					<i class="fa fa-edit"></i>
+				</a>
+				<a class="btn btn-yellow material" data-ng-click="remove();">
+					<i class="fa fa-trash"></i>
+				</a>
+			</span>
+		</h3>
 	</div>
-	<div class="pull-right" data-ng-show="authentication.user._id == image.user._id">
-		<a class="btn btn-primary" href="/#!/images/{{image._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon"><i class="fa fa-globe"></i></span>
+		<input type="text" class="form-control" placeholder="url" value="{{image.url}}" aria-describedby="basic-addon">
 	</div>
-	<small>
-		<em class="text-muted">
-			Saved on
-			<span data-ng-bind="image.created | date:'mediumDate'"></span>
-		</em>
-	</small>
+	<div class="img-wrap">
+		<img src="{{image.url}}" alt="{{image.url}}">
+	</div>
 </section>

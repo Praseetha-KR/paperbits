@@ -173,7 +173,16 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	border-left: 2px solid #ccc;
 	border-top: 2px solid #CCC;
 }
-
+.input-group-addon {
+	border-radius: 0;
+}
+input:focus {
+	outline: none;
+}
+.form-control:focus {
+	border-color: #CCC;
+	box-shadow: none;
+}
 /*
 	Header
 */	
@@ -253,13 +262,6 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 .color-list .item .color{
 	width: 100%;
 	height: 100%;
-	/*border-left: 3.5px solid #E0E0E0;
-	border-top: 3px solid #DCE0E2;*/
-	/*border: 5px solid #FFF;*/
-	/*-moz-box-shadow: inset 0 1px 1px 0 rgba(0,0,0,0.06), 0 1px 1px 0 rgba(0,0,0,0.06),0 2px 5px 0 rgba(0,0,0,0.2);
-	-webkit-box-shadow: inset 0 1px 1px 0 rgba(0,0,0,0.06), 0 1px 1px 0 rgba(0,0,0,0.06),0 2px 5px 0 rgba(0,0,0,0.2);
-	box-shadow: inset 0 1px 1px 0 rgba(0,0,0,0.06), 0 1px 1px 0 rgba(0,0,0,0.06),0 2px 5px 0 rgba(0,0,0,0.2);*/
-	/*box-shadow: inset -1px -1px 3px 0 rgba(0,0,0,0.06);*/
 }
 .color-match .item{
 	width: 100%;
@@ -282,6 +284,30 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	.color-list .item:hover .color-meta{
 		height: 100%;
 	}
+}
+
+/*
+	Images
+*/
+
+.image {
+	margin: 1em;
+	background-color: white;
+	display: block;
+}
+.img-wrap {
+	width: 100%;
+}
+.img-wrap img {
+	max-width: 100%;
+	width: auto;
+	text-align: center;
+}
+.image-thumb {
+	max-width: 100%;
+	text-align: center;
+	display: block;
+	margin: auto;
 }
 
 /*
@@ -331,7 +357,7 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
     color: white;
 }
 
-.link-thumb, .image-thumb {
+.link-thumb {
 	width: 100%;
 }
 .paper {
