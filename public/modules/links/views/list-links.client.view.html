@@ -1,18 +1,19 @@
 <section data-ng-controller="LinksController" data-ng-init="find()">
 	<div class="page-header">
-		<h3>Links <a href="/#!/links/create" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;add</a></h3>
+		<h3><span class="main-title">Links</span><a href="/#!/links/create" class="btn btn-yellow material"><i class="fa fa-plus"></i>&nbsp;&nbsp;add</a></h3>
 	</div>
-	<div masonry class="links">
+	<div masonry class="links grid">
 		<div data-ng-repeat="link in links" class="masonry-brick item">
-			<div class="list-group-item">
+			<div class="link">
 				<img ng-show="link.thumbnail_url.length" class="link-thumb" src="{{link.thumbnail_url}}" alt="">
-				<h3 class="list-group-item-heading">{{link.title}}</h3>
-				<p data-ng-bind="link.description"></p>
-				<p><a href="{{link.url}}" target="_blank">Read more <i class="fa fa-caret-right"></i></a></p>
-				<small class="list-group-item-text">
-					Saved on
-					<span data-ng-bind="link.created | date:'mediumDate'"></span>
-				</small>
+				<div class="link-meta">
+					<h3 class="link-title">{{link.title}}</h3>
+					<p class="link-desc" data-ng-bind="link.description"></p>
+					<p><a href="{{link.url}}" target="_blank">Read more <i class="fa fa-caret-right"></i></a></p>
+					<small class="list-control">
+						<i class="fa fa-clock-o"></i>&nbsp;&nbsp;<span data-ng-bind="link.created | date:'mediumDate'"></span>
+					</small>
+				</div>
 			</div>
 		</div>
 	</div>

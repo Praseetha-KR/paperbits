@@ -289,7 +289,9 @@ input:focus {
 /*
 	Images
 */
-
+.images {
+	margin: 0.5em;
+}
 .image {
 	margin: 1em;
 	background-color: white;
@@ -308,6 +310,68 @@ input:focus {
 	text-align: center;
 	display: block;
 	margin: auto;
+}
+.images .item {
+	width: 100%;
+}
+@media screen and (min-width: 768px) {
+	.images .item{
+		width: 33%;
+	}
+}
+@media screen and (min-width: 992px) {
+	.images .item{
+		width: 25%;
+	}
+}
+
+/*
+	Links
+*/
+
+.links {
+	margin: 0.5em;
+}
+.grid .links .item{
+	width: 100%;
+}
+.grid .link {
+	margin: 0.8em;
+	background-color: white;
+	display: block;
+	border-radius: 0.3em;
+	overflow: hidden;
+	border: 1px solid 1px solid rgba(42, 54, 58, 0.1);
+}
+.grid .link-thumb {
+	width: 100%;
+}
+.grid .link-meta {
+	padding: 0 1em 0.8em 1em;
+}
+.grid .link-meta a {
+	color: #F8CB4B;
+}
+.grid .link-title {
+	font-size: 1.2em;
+	font-weight: 400;
+}
+.grid .link-desc {
+	font-weight: 200;
+}
+.grid .list-control {
+	color: #8C989E;
+	font-size: 0.7em;
+}
+@media screen and (min-width: 768px) {
+	.links .item{
+		width: 33%;
+	}
+}
+@media screen and (min-width: 992px) {
+	.links .item{
+		width: 25%;
+	}
 }
 
 /*
@@ -357,9 +421,7 @@ input:focus {
     color: white;
 }
 
-.link-thumb {
-	width: 100%;
-}
+
 .paper {
 	background-color: #DADDE4;
 }
@@ -392,8 +454,5 @@ input:focus {
 	bottom: 100%;
 	margin-bottom: 0;
 }
-.images .item, .links .item {
-	width: 25%;
-	float: left;
-}
+
 
