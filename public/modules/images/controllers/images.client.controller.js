@@ -4,11 +4,11 @@
 angular.module('images').controller('ImagesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Images', 'embedFactory',
 	function($scope, $stateParams, $location, Authentication, Images, embedFactory) {
 		$scope.authentication = Authentication;
-		
 		// Create new Image
 		$scope.create = function() {
 			var image = new Images({
 				url: this.url,
+				resized_url: this.resized_url,
 				tags: this.tags
 			});
 
@@ -43,6 +43,7 @@ angular.module('images').controller('ImagesController', ['$scope', '$stateParams
 		// Update existing Image
 		$scope.update = function() {
 			var image = $scope.image;
+			image.resized_url = this.resized_url;
 			image.$update(function() {
 				$location.path('images/' + image._id);
 			}, function(errorResponse) {

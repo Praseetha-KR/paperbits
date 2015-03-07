@@ -162,3 +162,32 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 .paper {
 	background-color: #DADDE4;
 }
+.logo, .logo > a:hover {
+	background-color: #F8CB4B;
+}
+.logo > a {
+	color: #2e353b;
+}
+.dropdown-menu {
+	background-color: #3e474f;
+}
+.dropdown-menu > li > a {
+	color: #8C989E;
+}
+.dropdown-menu .divider {
+	background-color: #4F4F4F;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+	background-color: #3e474f;
+	background-image: none;
+	color: #F8CB4B;
+}
+.sidebar .nav.user-nav > li > a {
+	padding-top: 18px;
+	padding-bottom: 18px;
+}
+.dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
+	top: auto;
+	bottom: 100%;
+	margin-bottom: 0;
+}

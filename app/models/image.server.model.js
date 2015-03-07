@@ -19,9 +19,13 @@ var ImageSchema = new Schema({
 		default: '',
 		required: 'URL cannot be blank'
 	},
+	resized_url: {
+		type: String,
+		default: ''
+	},
 	tags: {
 		type: Array,
-		default: ''
+		default: []
 	},
 	user: {
 		type: Schema.ObjectId,

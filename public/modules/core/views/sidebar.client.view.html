@@ -10,7 +10,7 @@
 			</li>
 		</ul>
 		<ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">
-			<li><a class="logo">paper<br>bits</a></li>
+			<li class="logo"><a>paper<br>bits</a></li>
 			<li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
 				<a href="/#!/{{item.link}}"><i class="fa fa-{{item.icon}} fa-2x"></i><br>{{item.title}}</a>
 			</li>

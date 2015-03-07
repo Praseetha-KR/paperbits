@@ -6,19 +6,25 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Images = mongoose.model('Image'),
-	_ = require('lodash');
+	_ = require('lodash'),
+	config = require('../../config/config');
 
+function resizeImage(url) {
+	return 'http://i.embed.ly/1/display/resize?height=500&width=500&url=' + url.replace(/\//g,'%2F').replace(/:/g,'%3A') + '&key=' + config.embedly.key;
+}
 /**
  * Create a image
  */
 exports.create = function(req, res) {
 	var image = new Images(req.body);
+	image.resized_url = resizeImage(image.url);
 	image.user = req.user;
 
 	image.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
+
 			});
 		} else {
 			res.json(image);
@@ -40,6 +46,7 @@ exports.update = function(req, res) {
 	var image = req.image;
 
 	image = _.extend(image, req.body);
+	image.resized_url = resizeImage(image.url);
 
 	image.save(function(err) {
 		if (err) {
