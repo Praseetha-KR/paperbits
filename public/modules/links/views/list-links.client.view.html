@@ -2,8 +2,8 @@
 	<div class="page-header">
 		<h3>Links <a href="/#!/links/create" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;add</a></h3>
 	</div>
-	<div class="list-group">
-		<div data-ng-repeat="link in links" data-ng-href="#!/links/{{link._id}}" class="col-md-4">
+	<div masonry class="links">
+		<div data-ng-repeat="link in links" class="masonry-brick item">
 			<div class="list-group-item">
 				<img ng-show="link.thumbnail_url.length" class="link-thumb" src="{{link.thumbnail_url}}" alt="">
 				<h3 class="list-group-item-heading">{{link.title}}</h3>

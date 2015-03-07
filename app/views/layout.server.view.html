@@ -49,9 +49,7 @@
 <body class="ng-cloak">
 	<aside data-ng-include="'/modules/core/views/sidebar.client.view.html'" class="sidebar"></aside>
 	<section class="content">
-		<section class="container">
-			{% block content %}{% endblock %}
-		</section>
+		{% block content %}{% endblock %}
 	</section>
 
 	<!--Embedding The User Object-->
@@ -69,6 +67,18 @@
 	<!--Livereload script rendered -->
 	<script type="text/javascript" src="http://{{request.hostname}}:35729/livereload.js"></script>
 	{% endif %}
+
+	<script>
+		// form floating label
+		$('.material-form .form-group input').focusout(function() {		
+			var inputContent = $(this).val();
+			if ( inputContent !== '' ) {
+				$(this).addClass('has-content');
+			} else {
+				$(this).removeClass('has-content');
+			}
+		});
+	</script>
 
 	<!--[if lt IE 9]>
 	<section class="browsehappy jumbotron hide">

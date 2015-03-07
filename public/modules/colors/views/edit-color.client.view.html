@@ -1,21 +1,19 @@
 <section data-ng-controller="ColorsController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1><a href="/#!/colors"><i class="fa fa-arrow-left"></i></a> Edit Color</h1>
+		<h3><a href="/#!/colors"><i class="fa fa-arrow-left"></i></a> Edit Color</h3>
 	</div>
-	<div class="col-md-12">
-		<form name="colorForm" class="form-horizontal" data-ng-submit="update(colorForm.$valid)" novalidate>
+	<div class="col-xs-8 col-xs-offset-2">
+		<form name="colorForm" class="material-form form-horizontal" data-ng-submit="update(colorForm.$valid)" novalidate>
 			<fieldset>
 				<div class="form-group" ng-class="{ 'has-error' : submitted && colorForm.color_value.$invalid}">
-					<label class="control-label" for="color_value">color_value</label>
-					<div class="controls">
-						<input name="color_value" type="text" data-ng-model="color.color_value" id="color_value" class="form-control" placeholder="color_value" required>
-					</div>
+					<input name="color_value" type="text" data-ng-model="color.color_value" id="color_value" class="form-control has-content" required>
+					<label class="control-label" for="color_value">Color Value</label>
 					<div ng-show="submitted && colorForm.color_value.$invalid" class="help-block">
-						<p ng-show="colorForm.color_value.$error.required" class="text-danger">color_value is required</p>
+						<p ng-show="colorForm.color_value.$error.required" class="text-danger">color value is required</p>
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" value="Update" class="btn btn-default">
+					<input type="submit" value="Update" class="btn btn-yellow material">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>

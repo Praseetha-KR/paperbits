@@ -1,18 +1,16 @@
 <section data-ng-controller="ColorsController">
 	<div class="page-header">
-		<h1><a href="/#!/colors"><i class="fa fa-arrow-left"></i></a> New Color</h1>
+		<h3><a href="/#!/colors"><i class="fa fa-arrow-left"></i></a> New Color</h3>
 	</div>
-	<div class="col-md-12">
-		<form name="colorForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+	<div class="col-xs-8 col-xs-offset-2">
+		<form name="colorForm" class="material-form form-horizontal" data-ng-submit="create()" novalidate>
 			<fieldset>
 				<div class="form-group" ng-class="{ 'has-error': colorForm.color_value.$dirty && colorForm.color_value.$invalid }">
-					<label class="control-label" for="color_value">color_value</label>
-					<div class="controls">
-						<input name="color_value" type="text" data-ng-model="color_value" id="color_value" class="form-control" placeholder="color_value" required>
-					</div>
+					<input name="color_value" type="text" data-ng-model="color_value" id="color_value" class="form-control" required>
+					<label class="control-label" for="color_value">Color Value</label>
 				</div>
 				<div class="form-group">
-					<input type="submit" class="btn btn-default">
+					<input type="submit" class="btn btn-yellow material">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
