@@ -1,7 +1,7 @@
 <section data-ng-controller="ColorsController" data-ng-init="findOne()">
 	<div class="page-header">
 		<h3>
-			<a href="/#!/colors"><i class="fa fa-arrow-left"></i></a> {{color.color_value}}
+			<a href="/#!/colors" class="back-arrow"><i class="fa fa-arrow-left"></i></a><span class="title">{{color.hex}}</span>
 			<span data-ng-show="authentication.user._id == color.user._id">
 				<a class="btn btn-yellow material" href="/#!/colors/{{color._id}}/edit">
 					<i class="fa fa-edit"></i>

@@ -110,6 +110,10 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	outline: none;
 }
 
+/*
+	Form
+*/
+
 .material-form .form-group {
 	position: relative;
 	margin-bottom: 1.5em;
@@ -153,22 +157,8 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	top: -1em;
 	font-size: 0.8em;
 	color: #A3A3A3;
-}	
+}
 
-.page-header {
-	margin: 0;
-	height: 70px;
-	background-color: rgb(253, 253, 253);
-	padding: 0 25px;
-}
-.page-header h3 {
-	margin: 0;
-	line-height: 70px;
-	vertical-align: middle;
-}
-.page-header .fa-arrow-left {
-	color: #F8CB4B;
-}
 .form-horizontal {
 	margin-top: 3em;
 }
@@ -183,6 +173,41 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	border-left: 2px solid #ccc;
 	border-top: 2px solid #CCC;
 }
+
+/*
+	Header
+*/	
+
+.page-header {
+	margin: 0;
+	height: 70px;
+	background-color: rgb(253, 253, 253);
+}
+.title, .main-title {
+	padding-right: 1em;
+}
+.main-title {
+	padding-left: 1em;
+}
+.backarrow + .title {
+	padding-left: 0;
+}
+.back-arrow {
+	height: 70px;
+	width: 70px;
+	display: block;
+	float: left;
+	text-align: center;
+}
+.page-header h3 {
+	margin: 0;
+	line-height: 70px;
+	vertical-align: middle;
+}
+.page-header .fa-arrow-left {
+	color: #F8CB4B;
+}
+
 
 /*
 	Colors
