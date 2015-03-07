@@ -192,3 +192,7 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	bottom: 100%;
 	margin-bottom: 0;
 }
+.images .item {
+	width: 25%;
+	float: left;
+}
