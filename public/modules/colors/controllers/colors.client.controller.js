@@ -60,9 +60,13 @@ angular.module('colors').controller('ColorsController', ['$scope', '$stateParams
 			});
 		};
 
-		// $scope.convertSpace = function(color) {
-		// 	displayColor(color);
-		// };
+		$scope.changeColorWithBg = function(rgb) {
+			var arr = rgb.replace('rgb(', '').replace(')', '').split(',');
+			var yiq = ((arr[0] * 299) + (arr[1] * 587) + (arr[2] * 114))/1000;
+			var fontColor = ((yiq <= 128) ? 'white' : 'black');
+			// ref: http://24ways.org/2010/calculating-color-contrast/
+			return fontColor;
+		};
 
 		function removeSpaces(str) {
 			return str.replace(/\s/g, '');

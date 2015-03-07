@@ -76,6 +76,7 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 }
 .sidebar .nav li a{
 	text-align: center;
+	font-weight: 100;
 }
 .sidebar .nav li.active a{
 	background-color: #2e353b;
@@ -162,7 +163,7 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 .paper {
 	background-color: #DADDE4;
 }
-.logo, .logo > a:hover {
+.logo, .nav > li.logo > a:hover, .nav > li.logo > a:focus {
 	background-color: #F8CB4B;
 }
 .logo > a {

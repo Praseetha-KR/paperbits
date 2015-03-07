@@ -29,7 +29,9 @@
 	<div class="color-list">
 		<div data-ng-repeat="color in colors" data-ng-href="#!/colors/{{color._id}}" class="item">
 			<div class="color" style="background-color: {{ color.hex }};">
-				<h4 class="list-group-item-heading text-center">{{color.rgb}}<br>{{color.hex}}<br>{{color.hsl}}</h4>
+				<div ng-init="textColor = changeColorWithBg(color.rgb)">
+					<h4 class="color-space list-group-item-heading text-center" style="color: {{textColor}};">{{color.rgb}}<br>{{color.hex}}<br>{{color.hsl}}</h4>
+				</div>
 
 				<div class="pull-right" data-ng-show="authentication.user._id == color.user._id">
 					<a class="btn btn-primary" href="/#!/colors/{{color._id}}">

@@ -3,15 +3,17 @@
 		<h3>Links <a href="/#!/links/create" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;add</a></h3>
 	</div>
 	<div class="list-group">
-		<div data-ng-repeat="link in links" data-ng-href="#!/links/{{link._id}}" class="list-group-item col-md-4">
-			<img ng-show="link.thumbnail_url.length" class="link-thumb" src="{{link.thumbnail_url}}" alt="">
-			<h3 class="list-group-item-heading">{{link.title}}</h3>
-			<p data-ng-bind="link.description"></p>
-			<p><a href="{{link.url}}" target="_blank">Read more <i class="fa fa-caret-right"></i></a></p>
-			<small class="list-group-item-text">
-				Saved on
-				<span data-ng-bind="link.created | date:'mediumDate'"></span>
-			</small>
+		<div data-ng-repeat="link in links" data-ng-href="#!/links/{{link._id}}" class="col-md-4">
+			<div class="list-group-item">
+				<img ng-show="link.thumbnail_url.length" class="link-thumb" src="{{link.thumbnail_url}}" alt="">
+				<h3 class="list-group-item-heading">{{link.title}}</h3>
+				<p data-ng-bind="link.description"></p>
+				<p><a href="{{link.url}}" target="_blank">Read more <i class="fa fa-caret-right"></i></a></p>
+				<small class="list-group-item-text">
+					Saved on
+					<span data-ng-bind="link.created | date:'mediumDate'"></span>
+				</small>
+			</div>
 		</div>
 	</div>
 	<div class="alert alert-warning text-center" data-ng-if="links.$resolved && !links.length">
