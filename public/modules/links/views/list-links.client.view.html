@@ -11,7 +11,7 @@
 					<p class="link-desc" data-ng-bind="link.description"></p>
 					<p><a href="{{link.url}}" target="_blank">Read more <i class="fa fa-caret-right"></i></a></p>
 					<small class="list-control">
-						<i class="fa fa-clock-o"></i>&nbsp;&nbsp;<span data-ng-bind="link.created | date:'mediumDate'"></span>
+						<i class="fa fa-clock-o"></i>&nbsp;&nbsp;<span data-ng-bind="link.created | date:'mediumDate'"></span><a class="btn pull-right" data-ng-click="remove(link);"><i class="fa fa-trash"></i></a> 
 					</small>
 				</div>
 			</div>

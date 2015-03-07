@@ -1,18 +1,16 @@
 <section data-ng-controller="LinksController">
 	<div class="page-header">
-		<h1>New Link</h1>
+		<h3><a href="/#!/links" class="back-arrow"><i class="fa fa-arrow-left"></i></a><span class="title">New Link</span></h3>
 	</div>
-	<div class="col-md-12">
-		<form name="linkForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+	<div class="col-xs-8 col-xs-offset-2">
+		<form name="linkForm" class="material-form form-horizontal" data-ng-submit="create()" novalidate>
 			<fieldset>
 				<div class="form-group" ng-class="{ 'has-error': linkForm.url.$dirty && linkForm.url.$invalid }">
+					<input name="url" type="text" data-ng-model="url" id="url" class="form-control" required>
 					<label class="control-label" for="url">URL</label>
-					<div class="controls">
-						<input name="url" type="text" data-ng-model="url" id="url" class="form-control" placeholder="URL" required>
-					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" class="btn btn-default">
+					<input type="submit" class="btn btn-yellow material">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
@@ -20,6 +18,4 @@
 			</fieldset>
 		</form>
 	</div>
-
-
 </section>

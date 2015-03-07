@@ -22,7 +22,7 @@ angular.module('links').controller('LinksController', ['$scope', '$stateParams',
 
 					// Redirect after save
 					link.$save(function(response) {
-						$location.path('links/' + response._id);
+						$location.path('links');
 
 						// Clear form fields
 						$scope.url = '';
