@@ -611,7 +611,7 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	width: 100%;
 	background-size: 100%;
 	background-size: cover;
-	background-image: url('../img/background/bg.jpg');
+	background-image: url('/modules/core/img/background/bg.jpg');
 	margin-bottom: -100%;
 	position: absolute;
 	opacity: 0.3;
