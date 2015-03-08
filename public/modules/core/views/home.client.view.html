@@ -1,0 +1,40 @@
+<style>
+	aside {
+		width: 0;
+		overflow: hidden;
+		height: 0;
+	}
+	.content {
+		left: 0;
+	}
+	html, body, .content, .content > section {
+		height: 100%;
+	}
+	.home {
+		background-color: #F8CB4B;
+	}
+</style>
+<div class="home">
+	<div class="home-bg"></div>
+	<div class="home-masthead container-fluid">
+		<div class="pull-right" data-ng-show="authentication.user._id.length">
+			<a href=""><i class="fa fa-power-off"></i></a>
+		</div>
+		<div class="row text-center">
+			<h1>PaperBits</h1>
+			<h2>Creative people's scrap board<br>To keep bits of paper on the web!</h2>
+			<div class="login-btn">
+				<a href="/#!/signin" class="btn">Login/Register</a>
+			</div>
+			<div class="scroll-arrow"><i class="fa fa-chevron-down fa-4x"></i></div>
+		</div>
+	</div>
+</div>
+<div class="home-features">
+	<div class="container-fluid">
+		<div class="row text-center">
+			<h2>Features</h2>
+			<p class="features-main">PaperBits provides a solution to save the bits of inspirations on the web for the creative people. A board where you can store colors, images, notes, reference urls and also sticky notes for noting down important tasks.</p>
+		</div>
+	</div>
+</div>

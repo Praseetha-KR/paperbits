@@ -1,3 +1,19 @@
+<style>
+	aside {
+		width: 0;
+		overflow: hidden;
+		height: 0;
+	}
+	.content {
+		left: 0;
+	}
+	html, body, .content, .content > section {
+		height: 100%;
+	}
+	body {
+		background-color: #F8CB4B;
+	}
+</style>
 <section class="row" data-ng-controller="AuthenticationController">
 	<!-- <h3 class="col-md-12 text-center">Sign in using your social accounts</h3>
 	<div class="col-md-12 text-center">
@@ -46,3 +62,14 @@
 		</form>
 	</div>
 </section>
+<script>
+	// form floating label
+	$('.material-form .form-group input').focusout(function() {		
+		var inputContent = $(this).val();
+		if ( inputContent !== '' ) {
+			$(this).addClass('has-content');
+		} else {
+			$(this).removeClass('has-content');
+		}
+	});
+</script>
