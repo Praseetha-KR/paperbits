@@ -1,10 +1,10 @@
 # Paperbits
 **Design inspiration and planning made easy!**
 
-PaperBits is a full-stack JavaScript productivity app for creative people. The idea is to provide an interface similar to a digital scrap board, where user can create, store and refer to colors, images, urls, notes and todo tasks. This aggregates the common requirements on the inspiration and planning phases of design.
+[PaperBits](http://paperbits.imagineer.in) is a full-stack JavaScript productivity app for creative people. The idea is to provide an interface similar to a digital scrap board, where user can create, store and refer to colors, images, urls, notes and todo tasks. This aggregates the common requirements on the inspiration and planning phases of design.
 
 ## About the app
-PaperBits is created on top of the MEAN.JS Boilerplate, which uses Node.js, Express server, AngularJS and MongoDB.
+PaperBits is created on top of the [MEAN.JS](http://meanjs.org/) Boilerplate, which uses [Node.js](http://nodejs.org/), [Express server](http://expressjs.com/), [AngularJS](angularjs.org) and [MongoDB](http://www.mongodb.org/).
 
 ## Prerequisites
 Make sure you have installed all of the following prerequisites on your development machine:
