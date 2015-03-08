@@ -37,6 +37,7 @@ angular.module('notes').controller('NotesController', ['$scope', '$stateParams',
 						$scope.notes.splice(i, 1);
 					}
 				}
+				$location.path('notes');
 			} else {
 				$scope.note.$remove(function() {
 					$location.path('notes');

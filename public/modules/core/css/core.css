@@ -522,6 +522,11 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
     background-color: #2e353b;
     color: white;
 }
+.alert-warning {
+	background-image: none;
+	width: 96%;
+	margin: auto;
+}
 
 
 .paper {
