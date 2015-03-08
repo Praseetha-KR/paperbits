@@ -33,7 +33,7 @@ module.exports = {
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
 				'public/lib/eventie/eventie.js',
 				'public/lib/doc-ready/doc-ready.js',
-				'public/lib/eventEmitter/eventEmitter.min.js',
+				'public/lib/eventEmitter/EventEmitter.min.js',
 				'public/lib/get-style-property/get-style-property.js',
 				'public/lib/get-size/get-size.js',
 				'public/lib/matches-selector/matches-selector.js',
