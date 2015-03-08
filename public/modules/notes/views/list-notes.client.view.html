@@ -1,19 +1,21 @@
 <section data-ng-controller="NotesController" data-ng-init="find()">
 	<div class="page-header">
-		<h3>Notes <a href="/#!/notes/create" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;add</a></h3>
+		<h3><span class="main-title">Notes</span><a href="/#!/notes/create" class="btn btn-yellow material"><i class="fa fa-plus"></i>&nbsp;&nbsp;add</a></h3>
 	</div>
-	<div class="list-group">
-		<a data-ng-repeat="note in notes" data-ng-href="#!/notes/{{note._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="note.created | date:'mediumDate'"></span>
-				by
-				<span data-ng-bind="note.user.displayName"></span>
-				on
-				<span data-ng-bind="note.notebook"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="note.title"></h4>
-			<p class="list-group-item-text" data-ng-bind="note.content"></p>
+	<div class="notes">
+		<a data-ng-repeat="note in notes" data-ng-href="#!/notes/{{note._id}}/edit" class="col-md-3 item">
+			<div class="note">
+				<h4 class="note-title" data-ng-bind="note.title"></h4>
+				<p class="note-desc" data-ng-bind="note.content"></p>
+				<small class="controls">
+					<i class="fa fa-clock-o"></i>
+					<span data-ng-bind="note.created | date:'mediumDate'"></span>
+					<!-- by
+					<span data-ng-bind="note.user.displayName"></span> -->
+					<!-- on
+					<span data-ng-bind="note.notebook"></span> -->
+				</small>
+			</div>
 		</a>
 	</div>
 	<div class="alert alert-warning text-center" data-ng-if="notes.$resolved && !notes.length">

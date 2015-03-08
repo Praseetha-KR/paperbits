@@ -378,6 +378,70 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 }
 
 /*
+	Notes
+*/
+.notes {
+	margin: 1.5em 0.5em;
+}
+.note {
+	background-color: white;
+	display: block;
+	padding: 1em;
+	color: #333;
+	height: 250px;
+	position: relative;
+	width: 100%;
+	margin-bottom: 2em;
+}
+.notes a.item:hover, .notes a.item:active, .notes a.item:focus {
+	text-decoration: none;
+}
+.note .controls {
+	position: absolute;
+	bottom: 1em;
+	color: #8C989E;
+}
+.lead {
+	font-size: 1.1em;
+}
+.notepad {
+	background: white;
+	margin: 3em 0;
+	position: relative;
+}
+.notepad .form-horizontal .form-group {
+	margin: 0;
+}
+.notepad .title {
+	font-size: 1.2em;
+	font-weight: 500;
+	width: 100%;
+	padding: 6px 12px;
+}
+.note-title {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.note-desc {
+	height: 158px;
+	overflow: hidden;
+}
+.notepad input, .notepad textarea, .notepad input:focus, .notepad textarea:focus {
+	border: 0;
+	box-shadow: none;
+}
+.notepad .btn-yellow {
+	float: right;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 0
+}
+
+
+/*
 	Todos
 */
 

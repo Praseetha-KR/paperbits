@@ -1,24 +1,30 @@
 <section data-ng-controller="NotesController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="note.title"></h1>
-	</div>
-	<div class="pull-right" data-ng-show="authentication.user._id == note.user._id">
-		<a class="btn btn-primary" href="/#!/notes/{{note._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
+		<h3>
+			<a href="/#!/notes" class="back-arrow"><i class="fa fa-arrow-left"></i></a><span class="title" data-ng-bind="note.title"></span>
+			<span data-ng-show="authentication.user._id == note.user._id">
+				<a class="btn btn-yellow material" href="/#!/notes/{{note._id}}/edit">
+					<i class="fa fa-edit"></i>
+				</a>
+				<a class="btn btn-yellow material" data-ng-click="remove();">
+					<i class="fa fa-trash"></i>
+				</a>
+			</span>
+		</h3>
 	</div>
 	<small>
 		<em class="text-muted">
 			Posted on
 			<span data-ng-bind="note.created | date:'mediumDate'"></span>
-			by
+			<!-- by
 			<span data-ng-bind="note.user.displayName"></span>
 			on
-			<span data-ng-bind="note.notebook"></span>
+			<span data-ng-bind="note.notebook"></span> -->
 		</em>
 	</small>
-	<p class="lead" data-ng-bind="note.content"></p>
+	<div class="col-md-8 col-md-offset-2">
+		<div class="notepad">
+			<p class="lead" data-ng-bind="note.content"></p>
+		</div>
+	</div>
 </section>

@@ -16,7 +16,7 @@ angular.module('notes').controller('NotesController', ['$scope', '$stateParams',
 
 			// Redirect after save
 			note.$save(function(response) {
-				$location.path('notes/' + response._id);
+				$location.path('notes');
 
 				// Clear form fields
 				$scope.title = '';
@@ -49,7 +49,7 @@ angular.module('notes').controller('NotesController', ['$scope', '$stateParams',
 			var note = $scope.note;
 
 			note.$update(function() {
-				$location.path('notes/' + note._id);
+				$location.path('notes');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -67,4 +67,21 @@ angular.module('notes').controller('NotesController', ['$scope', '$stateParams',
 			});
 		};
 	}
+])
+
+.directive('elastic', [
+    '$timeout',
+    function($timeout) {
+		return {
+			restrict: 'A',
+			link: function($scope, element) {
+				var resize = function() {
+					element[0].style.height = '' + element[0].scrollHeight + 'px';
+					return element[0].style.height;
+				};
+				element.on('blur keyup change', resize);
+				$timeout(resize, 0);
+			}
+		};
+    }
 ]);

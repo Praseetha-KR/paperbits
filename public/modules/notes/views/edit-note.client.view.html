@@ -1,44 +1,51 @@
 <section data-ng-controller="NotesController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1>Edit Note</h1>
+		<h3>
+			<a href="/#!/notes" class="back-arrow"><i class="fa fa-arrow-left"></i></a><span class="title">Note</span>
+			<span data-ng-show="authentication.user._id == note.user._id">
+				<a class="btn btn-yellow material" data-ng-click="remove(note);">
+					<i class="fa fa-trash"></i>
+				</a>
+			</span>
+		</h3>
 	</div>
-	<div class="col-md-12">
-		<form name="noteForm" class="form-horizontal" data-ng-submit="update(noteForm.$valid)" novalidate>
-			<fieldset>
-				<div class="form-group" ng-class="{ 'has-error' : submitted && noteForm.title.$invalid}">
-					<label class="control-label" for="title">Title</label>
-					<div class="controls">
-						<input name="title" type="text" data-ng-model="note.title" id="title" class="form-control" placeholder="Title" required>
+	<div class="col-xs-8 col-xs-offset-2">
+		<div class="notepad">
+			<form name="noteForm" class="form-horizontal" data-ng-submit="update(noteForm.$valid)" novalidate>
+				<fieldset>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && noteForm.title.$invalid}">
+						<div class="controls">
+							<input name="title" type="text" data-ng-model="note.title" id="title" class="title" class="form-control" placeholder="Title" required>
+						</div>
+						<div ng-show="submitted && noteForm.title.$invalid" class="help-block">
+							<p ng-show="noteForm.title.$error.required" class="text-danger">Title is required</p>
+						</div>
 					</div>
-					<div ng-show="submitted && noteForm.title.$invalid" class="help-block">
-						<p ng-show="noteForm.title.$error.required" class="text-danger">Title is required</p>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && noteForm.content.$invalid}">
+						<div class="controls">
+							<textarea elastic name="content" data-ng-model="note.content" id="content" class="form-control" cols="30" rows="20" placeholder="Content" required></textarea>
+						</div>
+						<div ng-show="submitted && noteForm.content.$invalid" class="help-block">
+							<p ng-show="noteForm.content.$error.required" class="text-danger">Content is required</p>
+						</div>
 					</div>
-				</div>
-				<div class="form-group" ng-class="{ 'has-error' : submitted && noteForm.content.$invalid}">
-					<label class="control-label" for="content">Content</label>
-					<div class="controls">
-						<textarea name="content" data-ng-model="note.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
+					<!-- <div class="form-group" ng-class="{ 'has-error' : submitted && noteForm.notebook.$invalid}">
+						<label class="control-label" for="notebook">Notebook</label>
+						<div class="controls">
+							<input name="notebook" type="text" data-ng-model="note.notebook" id="notebook" class="form-control" placeholder="Notebook" required>
+						</div>
+						<div ng-show="submitted && noteForm.notebook.$invalid" class="help-block">
+							<p ng-show="noteForm.notebook.$error.required" class="text-danger">Notebook is required</p>
+						</div>
+					</div> -->
+					<div class="form-group">
+						<button type="submit" class="btn btn-yellow material"><i class="fa fa-check"></i>&nbsp;&nbsp;Save</button>
 					</div>
-					<div ng-show="submitted && noteForm.content.$invalid" class="help-block">
-						<p ng-show="noteForm.content.$error.required" class="text-danger">Content is required</p>
+					<div data-ng-show="error" class="text-danger">
+						<strong data-ng-bind="error"></strong>
 					</div>
-				</div>
-				<div class="form-group" ng-class="{ 'has-error' : submitted && noteForm.notebook.$invalid}">
-					<label class="control-label" for="notebook">Notebook</label>
-					<div class="controls">
-						<input name="notebook" type="text" data-ng-model="note.notebook" id="notebook" class="form-control" placeholder="Notebook" required>
-					</div>
-					<div ng-show="submitted && noteForm.notebook.$invalid" class="help-block">
-						<p ng-show="noteForm.notebook.$error.required" class="text-danger">Notebook is required</p>
-					</div>
-				</div>
-				<div class="form-group">
-					<input type="submit" value="Update" class="btn btn-default">
-				</div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-			</fieldset>
-		</form>
+				</fieldset>
+			</form>
+		</div>
 	</div>
 </section>
