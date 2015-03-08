@@ -118,7 +118,7 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	position: relative;
 	margin-bottom: 1.5em;
 }
-.material-form .form-group input[type="text"] {
+.material-form .form-group input[type="text"], .material-form .form-group input[type="email"], .material-form .form-group input[type="password"] {
 	padding: 0.3em 0 0;
 	background: none;
 	border-bottom: 1px solid #A3A3A3;
@@ -134,7 +134,7 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	background: none;
 	border-bottom-color: #F8CB4B;
 }
-.material-form .form-group input[type="text"] {
+.material-form .form-group input[type="text"], .material-form .form-group input[type="email"], .material-form .form-group input[type="password"] {
 	border-width: 0 0 1px 0;
 }
 .material-form .form-group input[type="text"]:active {
@@ -153,7 +153,9 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	transition: all 0.15s ease-out 0s;
 	font-weight: 300;
 }
-.material-form .form-group input[type="text"]:focus + label, .material-form .form-group input[type="text"].has-content + label {
+.material-form .form-group input[type="text"]:focus + label, .material-form .form-group input[type="text"].has-content + label,
+.material-form .form-group input[type="email"]:focus + label, .material-form .form-group input[type="email"].has-content + label,
+.material-form .form-group input[type="password"]:focus + label, .material-form .form-group input[type="password"].has-content + label {
 	top: -1em;
 	font-size: 0.8em;
 	color: #A3A3A3;
@@ -469,7 +471,6 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 .filter h5 {
 	line-height: 70px;
 	vertical-align: middle;
-	display: block;
 	margin: 0 2em 0 0;
 }
 .filter h5 a {
@@ -556,4 +557,33 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	margin-bottom: 0;
 }
 
+.signin {
+	padding: 0 0 1em 0;
+	background-color: white;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 2px 5px 0 rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 2px 5px 0 rgba(0,0,0,.2);
+	-o-box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 2px 5px 0 rgba(0,0,0,.2);
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 2px 5px 0 rgba(0,0,0,.2);
+}
+.signin .form-group {
+	margin: 15px;
+}
+.signin .form-control {
+	margin-bottom: 0.5em;
+}
+.form-header {
+	text-align: center;
+	font-size: 1.2em;
+	background-color: #FAFAFA;
+	margin-bottom: 0.5em;
+	text-transform: uppercase;
+	padding: 0.5em;
+}
+.form-footer {
+	padding-left: 15px;
+	padding-top: 15px;
+}
+.form-footer a, .form-footer a:hover, .form-footer a:active, .form-footer a:focus {
+	text-decoration: none;
+}
 
