@@ -1,9 +1,9 @@
 <section data-ng-controller="TodosController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1><a href="/#!/todos"><i class="fa fa-arrow-left"></i></a> Edit Todo</h1>
+		<h3><a href="/#!/todos" class="back-arrow"><i class="fa fa-arrow-left"></i></a><span class="title">Edit Task</span></h3>
 	</div>
-	<div class="col-md-12">
-		<form name="todoForm" class="form-horizontal" data-ng-submit="update(todoForm.$valid)" novalidate>
+	<div class="col-xs-8 col-xs-offset-2">
+		<form name="todoForm" class="sticky-post form-horizontal priority-{{todo.priority}} priority-{{}}" data-ng-submit="update(todoForm.$valid)" novalidate>
 			<fieldset>
 				<div class="form-group" ng-class="{ 'has-error' : submitted && todoForm.task.$invalid}">
 					<label class="control-label" for="task">Task</label>
@@ -14,25 +14,25 @@
 						<p ng-show="todoForm.task.$error.required" class="text-danger">Task is required</p>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.content.$invalid}">
+				<div class="form-group" ng-class="{ 'has-error' : submitted && todoForm.content.$invalid}">
 					<label class="control-label" for="content">Content</label>
 					<div class="controls">
-						<textarea name="content" data-ng-model="article.content" id="content" class="form-control" cols="30" rows="2" placeholder="Content"></textarea>
+						<textarea name="content" data-ng-model="todo.content" id="content" class="form-control" cols="30" rows="2" placeholder="Content"></textarea>
 					</div>
-					<div ng-show="submitted && articleForm.content.$invalid" class="help-block">
-						<p ng-show="articleForm.content.$error.required" class="text-danger">Content is required</p>
+					<div ng-show="submitted && todoForm.content.$invalid" class="help-block">
+						<p ng-show="todoForm.content.$error.required" class="text-danger">Content is required</p>
 					</div>
 				</div>
 				
 				<div class="form-group" ng-class="{ 'has-error' : submitted && todoForm.priority.$invalid}">
 					<label class="control-label" for="priority">Priority</label>
 					<select class="form-control" name="priority" data-ng-model="todo.priority" id="priority" required>
-						<option value="0">Zero</option>
-						<option value="1">One</option>
-						<option value="2">Two</option>
-						<option value="3">Three</option>
-						<option value="4">Four</option>
-						<option value="5">Five</option>
+						<option value="0">Extremely low</option>
+						<option value="1">Low</option>
+						<option value="2">Normal</option>
+						<option value="3">Medium</option>
+						<option value="4">High</option>
+						<option value="5">Extremely high</option>
 					</select>
 					<!-- <div class="controls">
 						<input name="priority" type="range" min="0" max="5" data-ng-model="todo.priority" id="priority" class="" placeholder="Priority" required>
@@ -42,7 +42,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" value="Update" class="btn btn-default">
+					<input type="submit" value="Update" class="btn btn-yellow material">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>

@@ -3,7 +3,7 @@
 		<h3><span class="main-title">Notes</span><a href="/#!/notes/create" class="btn btn-yellow material"><i class="fa fa-plus"></i>&nbsp;&nbsp;add</a></h3>
 	</div>
 	<div class="notes">
-		<a data-ng-repeat="note in notes" data-ng-href="#!/notes/{{note._id}}/edit" class="col-md-3 item">
+		<a data-ng-repeat="note in notes" data-ng-href="#!/notes/{{note._id}}/edit" class="col-md-3 col-sm-6 col-xs-12 item">
 			<div class="note">
 				<h4 class="note-title" data-ng-bind="note.title"></h4>
 				<p class="note-desc" data-ng-bind="note.content"></p>

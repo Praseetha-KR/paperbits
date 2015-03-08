@@ -445,36 +445,70 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	Todos
 */
 
+.todo-list {
+	margin: 1em 0;
+}
 .todo-list .item {
 	width: 25%;
 	float: left;
 	padding: 10px;
 }
 .todo-list .item .todo {
-	background-color: rgb(255, 255, 182);
 	width: 100%;
 	padding: 1em;
 	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),0 2px 5px 0 rgba(0, 0, 0, 0.13);
 	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),0 2px 5px 0 rgba(0, 0, 0, 0.13);
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),0 2px 5px 0 rgba(0, 0, 0, 0.13);
 }
-.todo-list .item .priority-0.todo {
+.todo .controls {
+	font-size: 0.8em;
+}
+.todo h4 {
+	margin-top: 0;
+}
+.filter h5 {
+	line-height: 70px;
+	vertical-align: middle;
+	display: block;
+	margin: 0 2em 0 0;
+}
+.filter h5 a {
+	border: 1px solid #F8CB4B;
+	padding: 0.25em 1em;
+	color: #F8CB4B;
+	border-radius: 1em;
+	text-decoration: none;
+}
+.filter h5 a:hover {
+	text-decoration: none;
+	color: #F8CB4B;
+}
+.priority-0 {
 	background-color: rgb(255, 255, 255);
 }
-.todo-list .item .priority-1.todo {
+.priority-1, .priority- {
 	background-color: rgb(255, 255, 182);
 }
-.todo-list .item .priority-2.todo {
+.priority-2 {
 	background-color: rgb(169, 247, 169);
 }
-.todo-list .item .priority-3.todo {
+.priority-3 {
 	background-color: rgb(184, 225, 250);
 }
-.todo-list .item .priority-4.todo {
+.priority-4 {
 	background-color: rgb(255, 210, 128);
 }
-.todo-list .item .priority-5.todo {
+.priority-5{
 	background-color: rgb(255, 184, 184);
+}
+.sticky-post {
+	-webkit-box-shadow: 0 6px 10px rgba(0,0,0,0.23), 0 10px 30px rgba(0,0,0,0.19);
+	-moz-box-shadow: 0 6px 10px rgba(0,0,0,0.23), 0 10px 30px rgba(0,0,0,0.19);
+	-o-box-shadow: 0 6px 10px rgba(0,0,0,0.23), 0 10px 30px rgba(0,0,0,0.19);
+	box-shadow: 0 6px 10px rgba(0,0,0,0.23), 0 10px 30px rgba(0,0,0,0.19);
+}
+.sticky-post.form-horizontal .form-group {
+	margin: 15px;
 }
 
 .user-nav  {
