@@ -451,9 +451,19 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	margin: 1em 0;
 }
 .todo-list .item {
-	width: 25%;
+	width: 100%;
 	float: left;
 	padding: 10px;
+}
+@media screen and (min-width: 768px) {
+	.todo-list .item{
+		width: 50%;
+	}
+}
+@media screen and (min-width: 992px) {
+	.todo-list .item{
+		width: 25%;
+	}
 }
 .todo-list .item .todo {
 	width: 100%;
@@ -624,12 +634,12 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 .home-features h2 {
 	padding-top: 2em;
 }
-.features-main
-{
+.features-main {
 	font-size: 1.5em;
 	font-weight: 200;
-	padding: 2em 10em 4em 10em;
+	padding: 2em;
 }
+
 .login-btn {
 	padding: 3em;
 }
@@ -677,7 +687,7 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	position: relative;
 	clear: both;
 	overflow: hidden;
-	margin-bottom: 5em;
+	margin-bottom: 0;
 	border-bottom: 1px solid white;
 }
 .feature-container img {
@@ -687,18 +697,6 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	border-top-right-radius: 3px;
 	margin-top: 5px;
 }
-.feature-container > .col-sm-6:first-child > img {
-	float: right;
-}
-.feature-container > .col-sm-5:first-child ul, .feature-container > .col-sm-5:first-child h3 {
-	text-align: right;
-}
-.feature-container > .col-sm-6:nth-child(2) > img {
-	float: left;
-}
-.feature-container > .col-sm-6:nth-child(2) ul li {
-	text-align: left;
-}
 .feature-container ul {
 	padding-left: 0;
 	list-style-type: none;
@@ -706,4 +704,32 @@ a.list-group-item.sticky-note:hover, a.list-group-item.sticky-note:focus {
 	font-weight: 200;
 }
 
-
+@media (min-width: 768px) {
+	.feature-container {
+		margin-bottom: 5em;
+		border-bottom: 1px solid white;
+	}
+	.features-main {
+		padding: 2em 10em 4em 10em;
+	}
+	.feature-container > .col-sm-6:first-child > img {
+		float: right;
+	}
+	.feature-container > .col-sm-5:first-child ul, .feature-container > .col-sm-5:first-child h3 {
+		text-align: right;
+	}
+	.feature-container > .col-sm-6:nth-child(2) > img {
+		float: left;
+	}
+	.feature-container > .col-sm-6:nth-child(2) ul li {
+		text-align: left;
+	}
+}
+@media (max-width: 768px) {
+	.navbar-nav {
+		margin: 0;
+	}
+	.material-form .form-group input[type="text"], .material-form .form-group input[type="email"], .material-form .form-group input[type="password"] {
+		height: 60px;
+	}
+}
