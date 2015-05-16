@@ -4,7 +4,7 @@
   "description": "Bits of paper on the web!",
   "dependencies": {
     "bootstrap": "~3",
-    "angular": "~1.2",
+    "angular": "1.2.7",
     "angular-resource": "~1.2",
     "angular-animate": "~1.2",
     "angular-mocks": "~1.2",
